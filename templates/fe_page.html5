@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="<?= $this->language ?>"<?php if ($this->isRTL): ?> dir="rtl"<?php endif; ?>>
+<head>
+
+  <?php $this->block('head'); ?>
+    <meta charset="<?= $this->charset ?>">
+    <title><?= $this->title ?></title>
+    <base href="<?= $this->base ?>">
+
+    <?php $this->block('meta'); ?>
+      <meta name="robots" content="<?= $this->robots ?>">
+      <meta name="description" content="<?= $this->description ?>">
+      <meta name="keywords" content="<?= $this->keywords ?>">
+      <meta name="generator" content="Contao Open Source CMS with reveal.js">
+    <?php $this->endblock(); ?>
+
+    <?= $this->viewport ?>
+    <?= $this->framework ?>
+    <link rel="stylesheet" href="files/reveal/css/reveal.css">
+
+    <?= $this->stylesheets ?>
+
+    <?php // ?= $this->mooScripts ?>
+
+    <!-- head (loads jquery which is not needed) -->
+    <?php // = $this->head ?>
+
+    <?php $this->block('html5shiv'); ?>
+      <!--[if lt IE 9]><script src="<?= TL_ASSETS_URL ?>assets/html5shiv/<?= $GLOBALS['TL_ASSETS']['HTML5SHIV'] ?>/html5shiv-printshiv.min.js"></script><![endif]-->
+    <?php $this->endblock(); ?>
+  <?php $this->endblock(); ?>
+
+</head>
+<body id="top" class="{{ua::class}}<?php if ($this->class) echo ' ' . $this->class; ?>"<?php if ($this->onload): ?> onload="<?= $this->onload ?>"<?php endif; ?>>
+
+  <?php $this->block('body'); ?>
+    <!-- sections top (is empty in reveal.js layout) -->
+    <?php // $this->sections('top'); ?>
+    <!-- /sections top -->
+
+    <div id="wrapper" class="reveal">
+
+      <!-- sections before (is empty in reveal.js layout) -->
+      <?php // $this->sections('before'); ?>
+      <!-- /sections before -->
+
+      <?php $this->block('container'); ?>
+
+          <?php $this->block('main'); ?>
+            <div id="main" class="slides">
+
+                <?= $this->main ?>
+
+              <!-- sections main (is empty in reveal.js layout) -->
+              <?php // $this->sections('main'); ?>
+              <!-- /sections main -->
+            </div>
+          <?php $this->endblock(); ?>
+          
+
+    <!-- sections bottom (is empty in reveal.js layout) -->
+    <?php // $this->sections('bottom'); ?>
+    <!-- /sections bottom -->
+  <?php $this->endblock(); ?>
+
+  <!-- mootools (loads j_reveal.js.html5 (has to be activated in page layout) -->
+  <?= $this->mootools ?>
+  <!-- /mootools -->
+  
+  <?php 
+  // j_reveal.js im Seitenlayout aktivieren!
+  /*
+		<script src="files/reveal/lib/js/head.min.js"></script>
+		<script src="files/reveal/js/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'slide', 
+			});
+
+		</script>
+*/ ?>
+
+</body>
+</html>
