@@ -30,6 +30,15 @@
     <?php $this->endblock(); ?>
   <?php $this->endblock(); ?>
 
+  <!-- Printing and PDF exports  // Thanks to BugBugster for bug reporting & code -->
+   <script>
+       var link = document.createElement( 'link' );
+       link.rel = 'stylesheet';
+       link.type = 'text/css';
+       link.href = window.location.search.match( /print-pdf/gi ) ? 'files/reveal/css/print/pdf.css' : 'files/reveal/css/print/paper.css';
+       document.getElementsByTagName( 'head' )[0].appendChild( link );
+   </script>
+
 </head>
 <body id="top" class="{{ua::class}}<?php if ($this->class) echo ' ' . $this->class; ?>"<?php if ($this->onload): ?> onload="<?= $this->onload ?>"<?php endif; ?>>
 
@@ -56,7 +65,7 @@
               <!-- /sections main -->
             </div>
           <?php $this->endblock(); ?>
-          
+
 
     <!-- sections bottom (is empty in reveal.js layout) -->
     <?php // $this->sections('bottom'); ?>
@@ -66,8 +75,8 @@
   <!-- mootools (loads j_reveal.js.html5 (has to be activated in page layout) -->
   <?= $this->mootools ?>
   <!-- /mootools -->
-  
-  <?php 
+
+  <?php
   // j_reveal.js im Seitenlayout aktivieren!
   /*
 		<script src="files/reveal/lib/js/head.min.js"></script>
@@ -78,7 +87,7 @@
 				progress: true,
 				history: true,
 				center: true,
-				transition: 'slide', 
+				transition: 'slide',
 			});
 
 		</script>
